@@ -55,7 +55,7 @@ FeatherForge relies on industry-grade compiler pipelines natively present on you
 
 If any component is missing, the onboarding wizard will surface quick-copy alignment commands (e.g., `sudo apt install build-essential`) to get your environment configured instantly.
 
-> Note: GDB is **not** currently checked by the onboarding wizard or invoked anywhere in the build pipeline. The "Debug Build" toggle in Preferences compiles with `-g` debug symbols only — see [Debug Builds](#debug-builds-current-behavior) below for what it does today, and the Roadmap for planned GDB integration.
+> Note: GDB is **not** currently checked by the onboarding wizard or invoked anywhere in the build pipeline. The "Debug Build" toggle in Preferences compiles with `-g` debug symbols only — see Debug Builds below for what it does today, and the Roadmap for planned GDB integration.
 
 ---
 
@@ -67,7 +67,7 @@ FeatherForge completely replaces build scripts by utilizing strict directory con
 your_project/
 ├── src/
 │   ├── main.cpp          <-- Main entry point file
-│   └── physics_core.cpp  <-- Additional code blocks
+│   └── physics_core.cpp  <-- Additional code blocks(not supported yet)
 ├── include/
 │   └── raylib.h          <-- Drop external library headers here
 ├── lib/
