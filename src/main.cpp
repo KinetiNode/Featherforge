@@ -1,4 +1,5 @@
 #include "imgui.h"
+#include <cstdint>
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include "TextEditor.h"
