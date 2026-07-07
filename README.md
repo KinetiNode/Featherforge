@@ -154,6 +154,8 @@ The following features are targeted for future development cycles. These updates
 * **Unified Libs Folder:** Support for placing raw external binaries into a single top-level directory where they work automatically.
 * **Compile from Source Utility:** A dedicated tool to pull down dependencies from remote source links and compile them locally to handle missing precompiled library archives.
 * **Windows Toolchain Support:** Native support for the Windows desktop ecosystem.
+* **Allow code compilation with static libraries and dynamic libraries via a menu.**
+
 
 ---
 
