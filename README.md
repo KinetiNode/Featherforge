@@ -1,10 +1,11 @@
 
 # FeatherForge (v1.0)
-> **A minimalist desktop C++ IDE for Linux. No CMake. No Build Scripts. Just Code.**
+> **A C++ IDE for simple library management for beginners**
 
-FeatherForge is a native C++ integrated development environment built using OpenGL3 and Dear ImGui. It is designed to eliminate the configuration overhead of traditional desktop build environments, allowing developers to rapid-prototype, integrate libraries, and write code quickly.
+FeatherForge is a native C++ integrated development environment built using OpenGL3 and Dear ImGui. I made it because i was tired of using Cmake and didn't even understand Cmake well when i was a begginer. I didn't know how to use it i couldnt comprehend WHY i needed it , might sound dumb but that's usually how beginners are.. i learned C++ to the point i made actual games that ran in the terminal but i didn't know how to use libraries.
+VS code was too much of a hurdle i just couldn't get it running.I'm sure thats the case with most beginners. (please be i don wanna sound dumb)
 
-FeatherForge is a lightweight native C++ IDE for Linux focused on rapid prototyping and small projects. It is not intended to replace CMake or full-featured IDEs like CLion; instead, it removes setup overhead for projects where writing a build system would be unnecessary.
+FeatherForge is a lightweight native C++ IDE for Linux focused on rapid prototyping and small projects. It is not intended to replace CMake or full-featured IDEs like CLion; instead, it is used when you just want to test a code or make smaller projects where you wouldn't need makefiles but are forced to make them because it includes libraries.
 
 ---
 
@@ -17,7 +18,7 @@ FeatherForge is a lightweight native C++ IDE for Linux focused on rapid prototyp
 | **Error Diagnostics** | Runs background Clang syntax checks with inline markers. | Parsing raw terminal diagnostic outputs manually. |
 | **Resource Footprint** | Native lightweight graphics framework. | Heavy multi-gigabyte platform ecosystems. |
 
-[Insert Image: Main FeatherForge IDE interface showcasing a clean, dual-panel workspace layout]
+[Main FeatherForge IDE interface showcasing a clean, dual-panel workspace layout](/compiletarget.png)
 
 ---
 
@@ -26,7 +27,7 @@ FeatherForge is a lightweight native C++ IDE for Linux focused on rapid prototyp
 FeatherForge v1.0 is packaged natively for Linux systems as an AMD64 Debian binary. You can download and install the package directly through your terminal using either of the automated methods below.
 
 ### Option 1: Download via curl
-```bash
+```
 curl -L [https://github.com/KinetiNode/Featherforge/raw/main/featherforge_1.0_amd64.deb](https://github.com/KinetiNode/Featherforge/raw/main/featherforge_1.0_amd64.deb) -o featherforge_1.0_amd64.deb
 
 ```
@@ -58,7 +59,7 @@ sudo apt install build-essential libglfw3-dev
 
 ```
 
-Then compile the executable using the provided build script:
+Then compile the executable using the provided build script(you first need to download the files using git pull):
 
 ```
 chmod +x build.sh
@@ -82,7 +83,7 @@ FeatherForge relies on industry-grade compiler pipelines natively present on you
 1. **GCC/G++** (Supporting C++17 or higher) - *Required for binary building.*
 2. **Clang / Clang++** - *Optional, drives the on-demand smart linter.*
 
-If any component is missing, the onboarding wizard will surface quick-copy alignment commands (e.g., `sudo apt install build-essential`) to get your environment configured instantly.
+If any component is missing, the setup wizard will give you a command for linux to download the essentials.
 
 > Note: GDB is not currently checked by the onboarding wizard or invoked anywhere in the build pipeline. The "Debug Build" toggle in Preferences compiles with `-g` debug symbols only — see Debug Builds below for what it does today, and the Roadmap for planned GDB integration.
 
@@ -96,7 +97,7 @@ FeatherForge replaces build scripts by utilizing strict directory conventions, r
 your_project/
 ├── src/
 │   ├── main.cpp            <-- Main entry point file
-│   └── physics_core.cpp    <-- Additional source files (not supported yet)
+│   └── physics_core.cpp    <-- Additional source files (not supported yet,will not be compiled will be fixed in v2.0)
 ├── include/
 │   └── raylib.h            <-- Drop external library headers here
 ├── lib/
@@ -144,7 +145,7 @@ FeatherForge keeps its core interface extremely minimal. Configuration preferenc
 
 Launch FeatherForge from your system applications menu or your terminal. Go to the top file layout bar and select **File > Open Project...** The IDE calls a native `zenity` configuration portal allowing you to pick your project folder. The left sidebar explorer will dynamically generate a clean folder tree.
 
-[ Native directory portal opening a codebase workspace into the tree hierarchy sidebar](/compiletarget.png)
+[ Native directory portal opening a codebase workspace into the tree hierarchy sidebar](/open.png)
 
 ### 2. Setting Your Execution Target
 
@@ -172,13 +173,12 @@ To activate real-time typing alerts without inducing lag into your interface fra
 
 | Key Shortcut | Operation Scope | System Output Behavior |
 | --- | --- | --- |
-| `Ctrl + N` | New File | Spawns the file-creation popup; entering a nested path (e.g. `src/core/utils.cpp`) auto-builds any missing subdirectories. |
 | `Ctrl + S` | Editor Framework | Writes current text modifications to disk and triggers an asynchronous linter loop. |
 | `Ctrl + ,` | Preferences Modal | Toggles system preferences and the linter module. |
 | `F5` | Build Pipeline | Automates project saving, collects auto-linking binaries, and executes g++ compilation. |
+New Folder creation is available via **File > New Folder** or right-clicking inside the sidebar — it does not currently have a dedicated keyboard shortcut.
 
-> New Folder creation is available via **File > New Folder** or right-clicking inside the sidebar — it does not currently have a dedicated keyboard shortcut.
-
+if you put a non existing path in new file(/n/a/test.cpp) it will create those directories too.
 ---
 
 ## Current Limitations (v1.0)
@@ -192,39 +192,17 @@ FeatherForge is designed primarily for small C++ projects and rapid prototyping.
 * No CMake, Makefile, Meson, or Ninja configuration file imports.
 * No custom compiler flag editor interface.
 * Libraries are automatically detected only directly inside `lib/` and `vendor/lib/` directories.
-
-### Editor
-
 * No code completion (LSP/clangd).
-* No Go to Definition functionality.
-* No Find References trace parsing.
-* No Rename Symbol tracking.
-* No code auto-formatting engine.
-* No workspace code minimap.
 * Single editor view layout (no tabs or split workspace windows).
-
-### Debugging
-
 * Generates debug symbols only (`-g`).
 * No integrated GDB debugging frontend console.
 * No visual breakpoints manager.
 * No variable inspector block.
 * No call stack viewer tracking.
-
-### Workspace
-
-* No global project-wide search patterns.
-* No replace-in-files utility.
-* No workspace session tracking modules.
-* No multiple build target profiles configuration.
-
-### Git
-
 * Basic Git file staging and tracking support only.
 * No branch management interface.
 * No commit history log browser.
-* No merge conflict resolution layout.
-
+  
 ### Platform
 
 * Linux support only.
