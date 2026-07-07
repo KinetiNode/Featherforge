@@ -3,7 +3,7 @@
 > **A C++ IDE for simple library management for beginners**
 
 FeatherForge is a native C++ integrated development environment built using OpenGL3 and Dear ImGui. I made it because i was tired of using Cmake and didn't even understand Cmake well when i was a begginer. I didn't know how to use it i couldnt comprehend WHY i needed it , might sound dumb but that's usually how beginners are.. i learned C++ to the point i made actual games that ran in the terminal but i didn't know how to use libraries.
-Getting VS Code configured for C++ projects was a hurdle for me when I was starting out. i just couldn't get it running.I'm sure thats the case with most beginners. (please be i don wanna sound dumb)
+Getting VS Code configured for C++ projects was a hurdle for me when I was starting out. i just couldn't get it running.I'm sure thats the case with most beginners. 
 
 FeatherForge is a lightweight native C++ IDE for Linux focused on rapid prototyping and small projects. It is not intended to replace CMake or full-featured IDEs like CLion; instead, it is used when you just want to test a code or make smaller projects where you wouldn't need makefiles but are forced to make them because it includes libraries.
 
@@ -59,7 +59,7 @@ sudo apt install build-essential libglfw3-dev
 
 ```
 
-Then compile the executable using the provided build script(you first need to download the files using git pull):
+Then compile the executable using the provided build script(you first need to clone the files using git clone):
 
 ```
 chmod +x build.sh
