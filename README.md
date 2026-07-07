@@ -18,7 +18,7 @@ FeatherForge is a lightweight native C++ IDE for Linux focused on rapid prototyp
 | **Error Diagnostics** | Runs background Clang syntax checks with inline markers. | Parsing raw terminal diagnostic outputs manually. |
 | **Resource Footprint** | Native lightweight graphics framework. | Heavy multi-gigabyte platform ecosystems. |
 
-[Main FeatherForge IDE interface showcasing a clean, dual-panel workspace layout](/compiletarget.png)
+![Main FeatherForge IDE interface showcasing a clean, dual-panel workspace layout](/compiletarget.png)
 
 ---
 
@@ -125,7 +125,7 @@ Currently, FeatherForge builds a single compile target. Projects with multiple `
 3. A `[*]` visual signature will pin next to the filename.
 4. You can now edit deeply nested headers or helper files, and hitting `F5` will reliably compile the correct entry target every time.
 
-[ Right-clicking a file in the sidebar explorer and setting it as the locked compilation target](/compiletarget.png)
+![ Right-clicking a file in the sidebar explorer and setting it as the locked compilation target](/compiletarget.png)
 
 ### Preferences Panel
 
@@ -135,7 +135,7 @@ FeatherForge keeps its core interface extremely minimal. Configuration preferenc
 * **Debug Builds (current behavior):** Toggling this and building with F5 compiles your target with `-g` debug symbols instead of `-O2` optimizations, so the resulting binary is ready to be attached to an external debugger (e.g. running `gdb ./build/yourprogram` yourself). It does not currently launch or wrap GDB automatically — see Roadmap.
 * **Settings Persistence:** Checkbox changes take effect immediately in the running session, but are only written to a localized `featherforge.cfg` configuration file when you click **Save & Close**. Clicking **Cancel** discards unsaved changes and reloads the last saved values.
 
-[Preferences popup modal displaying modular feature toggles for Clangd and GDB](/pref.png)
+![Preferences popup modal displaying modular feature toggles for Clangd and GDB](/pref.png)
 
 ---
 
@@ -145,7 +145,7 @@ FeatherForge keeps its core interface extremely minimal. Configuration preferenc
 
 Launch FeatherForge from your system applications menu or your terminal. Go to the top file layout bar and select **File > Open Project...** The IDE calls a native `zenity` configuration portal allowing you to pick your project folder. The left sidebar explorer will dynamically generate a clean folder tree.
 
-[ Native directory portal opening a codebase workspace into the tree hierarchy sidebar](/open.png)
+![ Native directory portal opening a codebase workspace into the tree hierarchy sidebar](/open.png)
 
 ### 2. Setting Your Execution Target
 
