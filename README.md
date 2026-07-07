@@ -157,7 +157,10 @@ Press **F5** or click the **Compile & Run** action button on the main toolbar co
 
 If a compiler break occurs, the console window parses raw compiler streams using a regex layout filter:
 
-$$\text{Regex Signature: } \verb|^([^:\s]+):(\d+):(\d+):\s*(error|warning|note):\s*(.*)$|$$
+
+```regex
+^([^:\s]+):(\d+):(\d+):\s*(error|warning|note):\s*(.*)$
+```
 
 Any compiler break turns into a clickable, red UI selection object. **Double-click the red error line**, and the editor will automatically adjust viewport visibility, shift focuses, and snap your cursor exactly to the calculated row and character column where the bug lives.
 
